@@ -1,32 +1,79 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const mongoose = require("mongoose");
 const initData = require("./data.js");
-console.log(initData)
 const Listing = require("../models/listing.js");
+const User = require("../models/user.js");
 
+const dbUrl = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust";
+const resetMode = process.argv.includes("--reset");
 
- 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+async function connectDB() {
+  await mongoose.connect(dbUrl);
+  console.log("Connected to DB for seed:", dbUrl.includes("mongodb+srv") ? "Atlas" : "Local MongoDB");
+}
 
+async function resolveOwnerId() {
+  // Highest priority: explicit env owner id.
+  if (process.env.INIT_OWNER_ID) {
+    return process.env.INIT_OWNER_ID;
+  }
 
-main().then(() => {
-    console.log("connected to DB");   
-}).catch((err) => {
-    console.log(err);
-})
+  // Fallback: first available user in DB.
+  const firstUser = await User.findOne({}, { _id: 1 });
+  if (firstUser) {
+    return firstUser._id;
+  }
 
-async function main() {
-    await mongoose.connect(MONGO_URL);
-}; 
+  throw new Error(
+    "No user found for listing ownership. Create a user first or set INIT_OWNER_ID in .env"
+  );
+}
 
-const initDB = async () => {
+async function seedListings() {
+  const ownerId = await resolveOwnerId();
+
+  if (resetMode) {
     await Listing.deleteMany({});
-    const listings = initData.sampleListings.map((obj) => ({
-    ...obj,
-    owner: "6918598cafa23c112b7c602b"
-}));
+    console.log("Reset mode enabled: existing listings deleted.");
+  }
 
-await Listing.insertMany(listings);
-    console.log("data was initialized");
-};
+  let inserted = 0;
+  let skipped = 0;
 
-initDB();
+  for (const item of initData.sampleListings) {
+    const existing = await Listing.findOne({
+      title: item.title,
+      location: item.location,
+      country: item.country,
+    }).select("_id");
+
+    if (existing) {
+      skipped += 1;
+      continue;
+    }
+
+    await Listing.create({
+      ...item,
+      owner: ownerId,
+    });
+    inserted += 1;
+  }
+
+  console.log(`Seed complete. Inserted: ${inserted}, Skipped(existing): ${skipped}`);
+}
+
+(async () => {
+  try {
+    await connectDB();
+    await seedListings();
+  } catch (err) {
+    console.error("Seed failed:", err.message);
+    process.exitCode = 1;
+  } finally {
+    await mongoose.connection.close();
+    console.log("DB connection closed.");
+  }
+})();
