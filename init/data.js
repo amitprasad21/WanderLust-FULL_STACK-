@@ -269,6 +269,106 @@ const sampleListings = [
     country: 'Singapore',
     category: 'Rooms',
     geometry: { type: 'Point', coordinates: [103.8198, 1.3521] }
+  },
+  {
+    title: 'Sunset Marina Apartment',
+    description: 'Modern apartment with marina views and sunset balcony.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400&auto=format&fit=crop' },
+    price: 2400,
+    location: 'Dubai',
+    country: 'United Arab Emirates',
+    category: 'Iconic Cities',
+    geometry: { type: 'Point', coordinates: [55.2708, 25.2048] }
+  },
+  {
+    title: 'Kyoto Zen Townhouse',
+    description: 'Quiet townhouse with traditional Japanese interiors.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1400&auto=format&fit=crop' },
+    price: 2800,
+    location: 'Kyoto',
+    country: 'Japan',
+    category: 'Houses',
+    geometry: { type: 'Point', coordinates: [135.7681, 35.0116] }
+  },
+  {
+    title: 'Iceland Glass Cabin',
+    description: 'Northern-lights friendly glass cabin in open landscapes.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1472224371017-08207f84aaae?q=80&w=1400&auto=format&fit=crop' },
+    price: 3900,
+    location: 'Reykjavik',
+    country: 'Iceland',
+    category: 'Cabins',
+    geometry: { type: 'Point', coordinates: [-21.8174, 64.1265] }
+  },
+  {
+    title: 'Lisbon Old-Town Studio',
+    description: 'Colorful studio apartment in the historic district.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1400&auto=format&fit=crop' },
+    price: 2100,
+    location: 'Lisbon',
+    country: 'Portugal',
+    category: 'Rooms',
+    geometry: { type: 'Point', coordinates: [-9.1393, 38.7223] }
+  },
+  {
+    title: 'Swiss Lake Chalet',
+    description: 'Wooden chalet with panoramic views of the alpine lake.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?q=80&w=1400&auto=format&fit=crop' },
+    price: 4300,
+    location: 'Interlaken',
+    country: 'Switzerland',
+    category: 'Mountains',
+    geometry: { type: 'Point', coordinates: [7.8632, 46.6863] }
+  },
+  {
+    title: 'Goa Palm Beach Villa',
+    description: 'Spacious beach villa with private lawn and pool.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1400&auto=format&fit=crop' },
+    price: 3200,
+    location: 'Candolim',
+    country: 'India',
+    category: 'Beach',
+    geometry: { type: 'Point', coordinates: [73.7625, 15.5185] }
+  },
+  {
+    title: 'Himalayan View Homestay',
+    description: 'Warm homestay with mountain sunrise view and bonfire nights.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=1400&auto=format&fit=crop' },
+    price: 1600,
+    location: 'Manali',
+    country: 'India',
+    category: 'Mountains',
+    geometry: { type: 'Point', coordinates: [77.1892, 32.2432] }
+  },
+  {
+    title: 'Barcelona Rooftop Flat',
+    description: 'Sunny rooftop flat close to cafes, metro, and landmarks.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1400&auto=format&fit=crop' },
+    price: 2600,
+    location: 'Barcelona',
+    country: 'Spain',
+    category: 'Iconic Cities',
+    geometry: { type: 'Point', coordinates: [2.1734, 41.3851] }
+  },
+  {
+    title: 'Sydney Harbour View Suite',
+    description: 'Premium suite with iconic harbour bridge and opera views.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop' },
+    price: 4100,
+    location: 'Sydney',
+    country: 'Australia',
+    category: 'Iconic Cities',
+    geometry: { type: 'Point', coordinates: [151.2093, -33.8688] }
+  },
+  {
+    title: 'Udaipur Lakeside Haveli',
+    description: 'Heritage-style haveli stay with traditional decor and lake views.',
+    image: { filename: 'listingimage', url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop' },
+    price: 2300,
+    location: 'Udaipur',
+    country: 'India',
+    category: 'Castle',
+    geometry: { type: 'Point', coordinates: [73.7125, 24.5854] }
   }
 ];
 
