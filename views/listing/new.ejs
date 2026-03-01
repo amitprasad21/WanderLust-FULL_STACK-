@@ -2,7 +2,7 @@
 
 
     <div class="row mt-3">
-        <div class="col-8 offset-2">
+        <div class="col-12 col-md-10 col-lg-8 mx-auto">
            
             <h3>Create a New Listing</h3>
             <form method="POST" action="/listing" novalidate class="needs-validation" enctype="multipart/form-data">
@@ -29,11 +29,11 @@
                 </div>
                 
             <div class="row">
-                <div class="mb-3 col-4">
+                <div class="mb-3 col-12 col-md-4">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number"  name="listing[price]" placeholder="1200" class="form-control" required>
+                    <input type="number" min="450"  name="listing[price]" placeholder="1200" class="form-control" required>
                     <div class="invalid-feedback">
-                    Price should be valid
+                    Price must be at least ₹450
                       </div>
                 </div>
                     
@@ -70,6 +70,7 @@
                         <option value="Beach">Beach</option>
                         <option value="Cabins">Cabins</option>
                         <option value="Houses">Houses</option>
+                        <option value="Hotel">Hotel</option>
                     </select>
                     <div class="invalid-feedback">
                         Please select a category

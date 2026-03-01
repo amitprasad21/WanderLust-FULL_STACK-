@@ -6,10 +6,10 @@ const listingSchema = new Schema({
   title: { type: String, required: true },
   description: String,
   image: { url: String, filename: String },
-  price: Number,
+  price: { type: Number, min: 450, required: true },
   location: String,
   country: String,
-  category: { type: String, default: "Rooms" },
+  category: { type: String, enum: ["Rooms","Iconic Cities","Mountains","Castle","Amazing Pools","Camping","Farms","Arctice","Domes","Beach","Cabins","Houses","Hotel"], default: "Rooms" },
   geometry: {
     type: {
       type: String,

@@ -146,7 +146,8 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 
-MAPBOX_TOKEN=your_mapbox_access_token
+MAP_API_KEY=your_google_maps_api_key
+# or GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 ```
 
 ### What each variable means:
@@ -157,7 +158,7 @@ MAPBOX_TOKEN=your_mapbox_access_token
 | `MONGODB_URI` | MongoDB database URI |
 | `SESSION_SECRET` | Cookie/session security key |
 | `CLOUDINARY_*` | Credentials for image uploads |
-| `MAPBOX_TOKEN` | Mapbox API token |
+| `MAP_API_KEY` / `GOOGLE_MAPS_API_KEY` | Google Maps JavaScript + Geocoding API key |
 
 ⚠️ **Do NOT commit `.env` to GitHub**
 Add `.env` to your `.gitignore`.
