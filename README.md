@@ -108,7 +108,19 @@ npm install
 3. **Create `.env` file**
 (See next section)
 
-4. **Run Project**
+4. **Seed Listings to MongoDB (Atlas or Local)**
+```bash
+npm run seed
+```
+
+Optional reset + reseed:
+```bash
+npm run seed:reset
+```
+
+> Seeder uses `ATLASDB_URL` from your `.env` automatically and creates a seed owner account if no user exists.
+
+5. **Run Project**
 ```bash
 node app.js | nodemon app.js
 ```
