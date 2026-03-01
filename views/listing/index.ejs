@@ -466,6 +466,10 @@
             <i class="fa-solid fa-igloo"></i>
             <p>Domes</p>
         </div>
+        <div class="filter <%= typeof currentFilters !== 'undefined' && currentFilters.category === 'Hotel' ? 'active' : '' %>" data-category="Hotel">
+            <i class="fa-solid fa-hotel"></i>
+            <p>Hotel</p>
+        </div>
     </div>
 
     <!-- Tax Toggle - Desktop -->
@@ -495,7 +499,7 @@
             <a href="/listing/<%= listing._id %>" class="listing-link">
                 <div class="card col listing-card">
                     <% if (listing.image && listing.image.url) { %>
-                        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem; object-fit: cover;">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: clamp(14rem, 35vw, 20rem); object-fit: cover;">
                     <% } else { %>
                         <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 20rem;">
                             <p class="text-white">No Image</p>

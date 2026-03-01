@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "geocode": "node utils/geocodeListings.js"
+    "geocode": "node utils/geocodeListings.js",
+    "seed": "node init/index.js",
+    "seed:reset": "node init/index.js --reset"
   },
   "keywords": [],
   "author": "",

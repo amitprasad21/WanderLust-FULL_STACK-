@@ -91,7 +91,7 @@ module.exports.createListing = async (req, res, next) => {
 
         // Geocode the location text if provided
         if (newListing.location && newListing.location.trim().length > 0) {
-            const key = process.env.MAP_API_KEY;
+            const key = process.env.MAP_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
             
             if (!key) {
                 console.error("MAP_API_KEY is not set in environment variables");
@@ -198,7 +198,7 @@ module.exports.updateListing = async (req, res, next) => {
 
         // If location was changed (or exists), geocode it
         if (updateData.location && updateData.location.trim().length > 0) {
-            const key = process.env.MAP_API_KEY;
+            const key = process.env.MAP_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
             
             if (!key) {
                 console.error("MAP_API_KEY is not set in environment variables");
